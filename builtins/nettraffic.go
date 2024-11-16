@@ -38,7 +38,7 @@ func netTrafficString() string {
 	prevTx = currentTx
 
 	// Fixed width formatting with padding
-	return fmt.Sprintf("↓%6sB ↑%6sB", formatBytes(rxDelta), formatBytes(txDelta))
+	return fmt.Sprintf("%6sB↓ %6sB↑", formatBytes(rxDelta), formatBytes(txDelta))
 }
 
 // NetTrafficModule returns a prebuilt NetTraffic module.

@@ -30,7 +30,7 @@ func batteryStatus() string {
 		if i > 0 {
 			ret += ", "
 		}
-		ret += fmt.Sprintf("B%d: %s%.0f%%", i, statusStrings[int8(b.State.Raw)], b.Current/b.Full*100)
+		ret += fmt.Sprintf("%s%.0f%%", statusStrings[int8(b.State.Raw)], b.Current/b.Full*100)
 	}
 
 	return ret
