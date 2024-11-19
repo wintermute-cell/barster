@@ -19,7 +19,7 @@ barster | dam
 ## what makes `barster` special?
 
 - Final output composed of individual "modules"
-- Collection of prebuilt modules like Battery, Datetime, Nettraffic, ...
+- Collection of [prebuilt modules](./prebuilt) like Battery, Datetime, Nettraffic, ...
 - Easy to add new [custom modules](#adding-modules) tailored to your system
 - Modules can update independently on a timer (polling), or even only when
   their data changes (event-driven) for optimal performance
@@ -37,9 +37,9 @@ go build
 
 ## configuration, adding modules
 
-To configure, modify `main.go` and recompile using `go build`. The `prebuilt`
-directory contains a (growing) number of prebuilt modules. To add a new module,
-add it to the `modules` list in `main.go`:
+To configure, modify `main.go` and recompile using `go build`. The
+[prebuilt](./prebuilt) directory contains a (growing) number of prebuilt
+modules. To add a new module, add it to the `modules` list in `main.go`:
 
 ```go
 modules := []pkg.Module{
