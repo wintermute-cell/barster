@@ -20,7 +20,7 @@ barster | dam
 
 - Final output composed of individual "modules"
 - Collection of [prebuilt modules](./prebuilt) like Battery, Datetime, Nettraffic, ...
-- Easy to add new [custom modules](#adding-modules) tailored to your system
+- Easy to add new [custom modules](#configuration-adding-modules) tailored to your system
 - Modules can update independently on a timer (polling), or even only when
   their data changes (event-driven) for optimal performance
 
