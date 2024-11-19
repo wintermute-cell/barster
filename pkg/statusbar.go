@@ -31,6 +31,10 @@ func (sb *StatusBar) runModule(module Module, wg *sync.WaitGroup) {
 	ticker := time.NewTicker(module.Interval)
 	defer ticker.Stop()
 
+	if module.Ticker == nil {
+		module.Ticker = make(chan struct{})
+	}
+
 	runModuleInternal := func() {
 		output := module.Update()
 		sb.mu.Lock()
@@ -44,6 +48,8 @@ func (sb *StatusBar) runModule(module Module, wg *sync.WaitGroup) {
 	for {
 		select {
 		case <-ticker.C:
+			runModuleInternal()
+		case <-module.Ticker:
 			runModuleInternal()
 		}
 	}

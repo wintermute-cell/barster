@@ -8,4 +8,5 @@ type Module struct {
 	Name     string
 	Interval time.Duration
 	Update   func() string
+	Ticker   chan struct{}
 }

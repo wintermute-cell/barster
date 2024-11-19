@@ -1,9 +1,10 @@
-module dwl_asyncbar
+module barster
 
 go 1.22.8
 
 require (
 	github.com/distatus/battery v0.11.0
+	github.com/godbus/dbus/v5 v5.1.0
 	github.com/shirou/gopsutil/v3 v3.24.5
 )
 

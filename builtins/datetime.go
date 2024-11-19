@@ -1,7 +1,7 @@
 package builtins
 
 import (
-	"dwl_asyncbar/pkg"
+	"barster/pkg"
 	"time"
 )
 

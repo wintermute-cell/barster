@@ -1,7 +1,7 @@
 package builtins
 
 import (
-	"dwl_asyncbar/pkg"
+	"barster/pkg"
 	"fmt"
 	"os"
 	"time"
@@ -12,11 +12,11 @@ import (
 var statusStrings = map[int8]string{
 	-1: "ERR",
 	0:  "ERR",
-	1:  "E",
-	2:  "F",
+	1:  "e",
+	2:  "f",
 	3:  "+",
 	4:  "-",
-	5:  "I",
+	5:  "i",
 }
 
 func batteryStatus() string {
@@ -42,15 +42,15 @@ func batteryStatus() string {
 //
 // ERR: Error
 //
-// E: Empty
+// e: Empty
 //
-// F: Full
+// f: Full
 //
 // +: Charging
 //
 // -: Discharging
 //
-// I: Idle
+// i: Idle
 func BatteryModule() pkg.Module {
 	return pkg.Module{
 		Name:     "Battery",

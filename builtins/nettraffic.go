@@ -1,7 +1,7 @@
 package builtins
 
 import (
-	"dwl_asyncbar/pkg"
+	"barster/pkg"
 	"fmt"
 	"github.com/shirou/gopsutil/v3/net"
 	"time"
@@ -11,19 +11,19 @@ var prevRx uint64
 var prevTx uint64
 
 func formatBytes(value uint64) string {
-	if value > 1024*1024 {
-		return fmt.Sprintf("%.1fM", float64(value)/1024/1024)
+	if value >= 1024*1024 {
+		return fmt.Sprintf("%2dMB", value/(1024*1024))
 	}
-	if value > 1024 {
-		return fmt.Sprintf("%.1fK", float64(value)/1024)
+	if value >= 1024 {
+		return fmt.Sprintf("%2dKB", value/1024)
 	}
-	return fmt.Sprintf("%d", value)
+	return fmt.Sprintf("%3dB", value)
 }
 
 func netTrafficString() string {
 	ioCounters, err := net.IOCounters(false)
 	if err != nil || len(ioCounters) == 0 {
-		return "↓   0B ↑   0B "
+		return "  0B↓   0B↑"
 	}
 
 	currentRx := ioCounters[0].BytesRecv
@@ -37,13 +37,13 @@ func netTrafficString() string {
 	prevRx = currentRx
 	prevTx = currentTx
 
-	// Fixed width formatting with padding
-	return fmt.Sprintf("%6sB↓ %6sB↑", formatBytes(rxDelta), formatBytes(txDelta))
+	// Fixed width formatting with arrows after the units
+	return fmt.Sprintf("%5s↓ %5s↑", formatBytes(rxDelta), formatBytes(txDelta))
 }
 
 // NetTrafficModule returns a prebuilt NetTraffic module.
 //
-// Displays:  ↓4B ↑4B
+// Displays: 4KB↓ 3MB↑
 func NetTrafficModule() pkg.Module {
 	return pkg.Module{
 		Name:     "NetTraffic",
