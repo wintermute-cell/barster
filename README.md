@@ -6,6 +6,8 @@
 outputs the content of a statusbar as a single string that is then displayed on
 the bar.
 
+![showcase](./showcase.png)
+
 With `dwm` you would use `barster` like this:
 ```bash
 barster | while read new_status; do xsetroot -name "$new_status"; done
@@ -102,5 +104,6 @@ modules := []pkg.Module{
 
 You are welcome to contribute new modules you've built! Please make sure they
 are as portable as they can be so many people can benefit.
+
 You may also create feature request issues if you are unable to create a module
 you need yourself.
