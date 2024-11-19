@@ -1,7 +1,7 @@
 # barster
 
 `barster` is a content provider for simple, string based status-bars like
-[dwm](https://dwm.suckless.org/)s bar, or wayland statusbar projects like
+[dwm](https://dwm.suckless.org/)'s bar, or wayland statusbar projects like
 [sewn/dam](https://codeberg.org/sewn/dam). Essentially, `barster` continually
 outputs the content of a statusbar as a single string that is then displayed on
 the bar.
