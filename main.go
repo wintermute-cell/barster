@@ -32,7 +32,7 @@ func getTrayIconCount() int {
 func main() {
 	// define your list of modules here, from right to left
 	modules := []pkg.Module{
-		builtins.MtrakkerModule(),
+		// builtins.MtrakkerModule(),
 		builtins.PactlAudioModule(),
 		builtins.NetTrafficModule(),
 		builtins.BatteryModule(),
