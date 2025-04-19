@@ -22,9 +22,13 @@ var statusStrings = map[int8]string{
 func batteryStatus() string {
 	batteries, err := battery.GetAll()
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "Could not get battery info: %v\n", err)
-		return "Error"
+		if err, ok := err.(battery.ErrFatal); ok {
+			fmt.Fprintf(os.Stderr, "Could not get battery info: %v\n", err)
+			fmt.Println(err)
+			return "Error"
+		}
 	}
+
 	ret := ""
 	for i, b := range batteries {
 		if i > 0 {
